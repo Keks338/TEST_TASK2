@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+}
+  
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    padding: 0;
+    margin: 0;
+}
+.pop-up-card {
+    position: fixed;
+    left: 28%;
+    top: 17%;
+    background-color: aliceblue;
+    width: 45vw;
+    height: 66vh;
+    animation: fadeIn 0.5s ease-in-out;
+}
+.pop-up-card-login {
+    position: fixed;
+    left: 40%;
+    top: 35%;
+    background-color: aliceblue;
+    width: 20vw;
+    height: 30vh;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.pop-up-card.hide {
+    animation: fadeOut 0.5s ease-in-out;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.pop-up-background-friends {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 6;
+}
+.pop-up-background-files {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 6;
+}
+
+.pop-up-background-chats {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 6;
+}
+
+.static-div {
+    height: 46%;
+    overflow: auto;
+    border: 1px solid #ccc;
+    margin: 35px 10px;
+}
+
+.scrollable-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.scrollable-list li {
+    padding: 10px;
+}
+
+.scrollable-list li:last-child {
+    border-bottom: none;
+}
+
+.static-div-chat {
+    height: 100%;
+    overflow: auto;
+}
+
+.scrollable-list-chat {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.scrollable-list-messages {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.scrollable-list-messages li {
+    padding: 10px;
+}
+
+.scrollable-list-messages li:last-child {
+    border-bottom: none;
+}
+
+.scrollable-list-chat li {
+    padding: 10px;
+}
+
+.scrollable-list-chat li:last-child {
+    border-bottom: none;
+}
+
+.button-chat{
+    border: none; 
+    border-radius: 16px; 
+    background-color: rgb(233, 227, 208);
+    transition: 0.6ms;
+}
+:hover.button-chat{
+    background-color: rgb(198, 193, 175);
+    cursor: pointer;
+    transition: 0.6ms;
+}
+
+.message-input-field{
+    position: relative;
+    top: 93%;
+}
+
+.message-container {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.scrollable-list-messages {
+    padding: 20px;
+    list-style: none;
+    margin: 0;
+  }
+  
+  .message-container {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .current-user {
+    background-color: #f0f0f0;
+  }
+  
+  .sender-name {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .message-text {
+    margin-bottom: 10px;
+  }
+  
+  .media-container {
+    margin-top: 10px;
+  }
+  
+  .timestamp {
+    font-size: 12px;
+    color: #666;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+}
+
+.scrollable-list-messages {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: scroll;
+    height: 500px;
+}
+
+.message-container {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 60%;
+    word-wrap: break-word;
+}
+
+.message-container p {
+    margin: 0;
+}
+
+.message-container.sender {
+    align-self: flex-end;
+    background-color: #DCF8C6;
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-content: flex-end;
+    margin-left: auto;
+    text-align: right;
+}
+
+.message-container.receiver {
+    align-self: flex-start;
+    background-color: #FFF;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    margin-right: auto;
+    text-align: left;
+}
+
+.message-container img, .message-container video, .message-container audio {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.message-timestamp {
+    font-size: 0.8em;
+    color: grey;
+    margin-top: 5px;
+}

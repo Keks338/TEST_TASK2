@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tailwind_filters %}
+{% block content %}
+
+<h2 style="color:black;">Список записей ДДС</h2>
+<div class="container mx-auto py-8">
+    <div class="card bg-white shadow-lg rounded-lg overflow-hidden" style="margin: 20px;">
+        <div class="card-body p-6">
+          <center>
+          <form method="get" class="mb-3">
+  <div class="row">
+    <div class="col">
+      <input type="date" name="start_date" class="form-control" placeholder="С даты">
+    </div>
+    <div class="col">
+      <input type="date" name="end_date" class="form-control" placeholder="По дату">
+    </div>
+    <div class="col">
+      <select name="status" class="form-control">
+        <option value="">Все статусы</option>
+        {% for status in statuses %}
+          <option value="{{ status.id }}">{{ status.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col">
+      <select name="type" class="form-control">
+        <option value="">Все типы</option>
+        {% for type in types %}
+          <option value="{{ type.id }}">{{ type.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col">
+      <button type="submit" class="btn btn-primary" style="width:100%; color:black;">Фильтровать</button>
+    </div>
+  </div>
+</form>
+          </center>
+<a href="{% url 'cash:directories_manage' %}" class="btn btn-primary mb-3">Список директорий</a>
+<a href="{% url 'cash:cashflow_add' %}" class="btn btn-success mb-3">Добавить запись</a>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Дата</th>
+      <th>Статус</th>
+      <th>Тип</th>
+      <th>Категория</th>
+      <th>Подкатегория</th>
+      <th>Сумма</th>
+      <th>Комментарий</th>
+      <th>Действия</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for record in records %}
+      <tr>
+        <td>{{ record.date }}</td>
+        <td>{{ record.status.name }}</td>
+        <td>{{ record.type.name }}</td>
+        <td>{{ record.category.name }}</td>
+        <td>{{ record.subcategory.name }}</td>
+        <td>{{ record.amount }} ₽</td>
+        <td>{{ record.comment }}</td>
+        <td>
+          <a href="{% url 'cash:cashflow_edit' record.pk %}" class="btn btn-sm btn-warning">✏️</a>
+          <a href="{% url 'cash:cashflow_delete' record.pk %}" class="btn btn-sm btn-danger">🗑️</a>
+        </td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="8" class="text-center">Нет записей</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
